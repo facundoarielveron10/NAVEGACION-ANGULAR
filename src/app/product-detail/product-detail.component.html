@@ -1,0 +1,12 @@
+<ng-container *ngIf="!loading">
+  <h1>Detalle del producto: {{ product?.name | titlecase }}</h1>
+  <h2 *ngIf="product?.description">{{ product?.description }}</h2>
+  <h2 [ngStyle]="{ color: color }">
+    {{ product?.price | currency }}
+  </h2>
+</ng-container>
+<ng-container *ngIf="loading">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</ng-container>
