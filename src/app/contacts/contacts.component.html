@@ -1,1 +1,91 @@
-<p>contacts works!</p>
+<div class="container">
+  <form [formGroup]="formContact" (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label
+        [ngClass]="{
+          'text-danger':
+            hasErrors('email', 'required') || hasErrors('email', 'email')
+        }"
+        for="email"
+        class="form-label"
+        >Direccion Email</label
+      >
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('email', 'required') || hasErrors('email', 'email')
+        }"
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="emailHelp"
+        formControlName="email"
+      />
+      <div class="text-danger" *ngIf="hasErrors('email', 'email')">
+        La Direccion de Email es invalida
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('email', 'required')">
+        La Direccion de Email es requerida
+      </div>
+    </div>
+    <div class="mb-3">
+      <label
+        [ngClass]="{
+          'text-danger':
+            hasErrors('name', 'required') || hasErrors('name', 'minlength')
+        }"
+        for="name"
+        class="form-label"
+        >Nombre completo</label
+      >
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('name', 'required') || hasErrors('name', 'minlength')
+        }"
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        formControlName="name"
+      />
+      <div class="text-danger" *ngIf="hasErrors('name', 'required')">
+        El Nombre Completo es obligatorio
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('name', 'minlength')">
+        El Nombre Completo debe contener al menos 3 caracteres
+      </div>
+    </div>
+    <div class="mb-3">
+      <label
+        [ngClass]="{
+          'text-danger':
+            hasErrors('message', 'required') ||
+            hasErrors('message', 'minlength')
+        }"
+        for="message"
+        class="form-label"
+        >Mensaje</label
+      >
+      <textarea
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('message', 'required') ||
+            hasErrors('message', 'minlength')
+        }"
+        type="text"
+        class="form-control"
+        id="message"
+        required
+        formControlName="message"
+      ></textarea>
+      <div class="text-danger" *ngIf="hasErrors('message', 'required')">
+        El Mensaje es obligatorio
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('message', 'minlength')">
+        El Mensaje debe contener al menos 10 caracteres
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>

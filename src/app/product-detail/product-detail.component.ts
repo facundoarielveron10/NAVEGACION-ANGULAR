@@ -1,10 +1,4 @@
-import {
-  CurrencyPipe,
-  NgClass,
-  NgIf,
-  NgStyle,
-  TitleCasePipe,
-} from '@angular/common';
+import { CurrencyPipe, NgIf, NgStyle, TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product, productsList } from '../products/products.mock';
